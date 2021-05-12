@@ -162,6 +162,7 @@ app.post("/changePassword", urlencodedParser, (req, res) => {
                         passwords.unshift(reqBody.password);
                          jsonData[userId].lastPasswords = passwords;
                         jsonData[userId].password = reqBody.password;
+                        jsonData[userId].updatedAt = Date.now();
                           fs.writeFile(
                               "./data.json",
                               JSON.stringify(jsonData),
